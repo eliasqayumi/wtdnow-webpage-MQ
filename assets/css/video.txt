@@ -1,0 +1,69 @@
+// JavaScript for controlling video playback on scroll
+const video = document.querySelector('.video');
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const videoHeight = video.scrollHeight;
+  const windowHeight = window.innerHeight;
+  
+  // Play video when scrolling
+  if (scrollPosition > videoHeight - windowHeight) {
+    video.pause();
+  } else {
+    video.play();
+  }
+});
+
+<div class="video-section">
+    <div class="video-container">
+      <video class="video" autoplay muted loop>
+        <source src="assets/img/80134-572367417.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  /* Ensure the body and html fill the screen */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Video section styling */
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide anything outside the section */
+}
+
+.video-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: sticky;
+  top: 0;
+}
+
+
+
+
+
+
+
